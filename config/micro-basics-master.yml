@@ -4,3 +4,34 @@ spring:
       enabled: false
   profiles:
     active: master
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/basics?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 3600
+      password:
+message:
+  queue:
+    type: rabbitmq
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+  ## rabbit mq properties
+  queuename: task.start.queue
+  exchange: task.start.exchange
+  routingKey: task.start.#
+
+  wechat.queue: wechat_queue
+
+# file upload api
+file:
+  upload.url: http://168.168.253.70:8088/v1/upload
+  download.url: http://168.168.253.70:8088/v1/download/
